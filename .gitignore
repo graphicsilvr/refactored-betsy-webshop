@@ -1,0 +1,28 @@
+# Ignore virtual environment files
+venv/
+
+# Ignore compiled Python files
+__pycache__/
+*.pyc
+
+# Ignore database files
+*.db
+
+# Ignore log files
+*.log
+
+# Ignore IDE files
+.vscode/
+.idea/
+
+# Ignore configuration files
+config.ini
+
+# Ignore test files
+test/
+tests/
+*.test
+
+# Ignore API documentation
+docs/
+
