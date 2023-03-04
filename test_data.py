@@ -32,5 +32,3 @@ def populate_test_database():
         
         for purchase in purchases:
             purchase.save(conn)
-            
-            

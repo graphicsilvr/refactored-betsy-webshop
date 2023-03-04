@@ -107,11 +107,7 @@ def delete_tag(tag_id):
     tag = Tag.get(Tag.id == tag_id)
     tag.delete_instance()  
     
-if __name__ == '__main__':
-    db = SqliteDatabase('batabase.db')
-    db.create_tables([User, Product, Tag, Transaction], safe=True)
-
-    # Populate test data
+    # Populate test database
 def populate_test_database():
     user1 = User.create(
         name='John Doe',
@@ -125,9 +121,9 @@ def populate_test_database():
         billing_info='1234-5678-9012-6789'
     )
 
-    tag1 = Tag.create(name='Clothing')
-    tag2 = Tag.create(name='Home Decor')
-    tag3 = Tag.create(name='Crafts')
+    tag1 = Tag.create(name='Clothing', product = 1)
+    tag2 = Tag.create(name='Home Decor', product = 2)
+    tag3 = Tag.create(name='Crafts', product =3)
 
     product1 = Product.create(
         name='Handmade Sweater',
@@ -136,6 +132,8 @@ def populate_test_database():
         quantity=20,
         user=user1
     )
+    
+    """i have to add tags to the products"""
     product1.tags.add(tag1)
     product1.tags.add(tag3)
 
@@ -213,5 +211,8 @@ def populate_test_database():
     print(f"Removed product with ID {product_id} from the catalog.")
 
     db.close()
-
-
+    
+if __name__ == '__main__':
+    db = SqliteDatabase('batabase.db')
+    db.create_tables([User, Product, Tag, Transaction], safe=True)
+    populate_test_database()
